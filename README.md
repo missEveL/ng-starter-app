@@ -1,4 +1,10 @@
-# SkeletonNgApp
+# NgStarterApp
+An Angular Material starter app with login.
+
+## Changing the Project Name
+Modify Project name in styles.scss, angular.json and project folder name. 
+If npm install already done, delete 'node_modules' folder from your project directory. 
+Then run npm install command.Finally run ng serve command.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
