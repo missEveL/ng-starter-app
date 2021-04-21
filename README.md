@@ -1,5 +1,5 @@
 # NgStarterApp
-An Angular Material starter app with login.
+An Angular starter app with login/logout/register/user profile components.
 
 ## Changing the Project Name
 Modify Project name in styles.scss, angular.json and project folder name. 
