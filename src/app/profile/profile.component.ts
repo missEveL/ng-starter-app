@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  currentUser: Object = {};
+  
+  constructor(
+    public authService: AuthService,
+    private activatedRoute: ActivatedRoute
+  ) {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.authService.getUserProfile(id).subscribe(res => {
+      this.currentUser = res;
+    })
+  }
 
   ngOnInit(): void {
   }

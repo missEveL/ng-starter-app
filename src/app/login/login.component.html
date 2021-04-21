@@ -1,15 +1,18 @@
 <div class="container">
-<mat-form-field appearance="fill">
-    <mat-label>Name or Email</mat-label>
-    <input matInput [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
-  <button mat-raised-button color="accent" routerLink="/user/1">Submit</button>
+  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name or Email</mat-label>
+      <input matInput [formControl]="loginForm.controls['email']" required>
+      <mat-error *ngIf="loginForm.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="loginForm.controls['password']">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Submit</button>
+  </form>
 </div>
