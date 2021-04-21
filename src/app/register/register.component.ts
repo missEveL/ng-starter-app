@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
     public router: Router
   ) {
     this.registerForm= this.formBuilder.group({
-      name: [''],
+      username: [''],
       email: [''],
       password: ['']
     })
@@ -27,11 +28,13 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    this.authService.register(this.registerForm.value).subscribe((res) => {
-      if (res.result) {
-        this.registerForm.reset()
-        this.router.navigate(['login']);
-      }
-    })
+    const newUser = new User(this.registerForm.controls['username'].value, 
+                              this.registerForm.controls['password'].value, 
+                              this.registerForm.controls['email'].value);
+
+    this.authService.register(newUser).subscribe(() => {
+      this.registerForm.reset();
+      this.router.navigate(['login']);
+    });
   }
 }

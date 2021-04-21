@@ -27,7 +27,10 @@ export class AuthService {
 
   register(user: User): Observable<any> {
     return this.httpClient.post(this.SIGNUP_URL, user).pipe(
-        catchError(this.handleError)
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
     )
   }
 
