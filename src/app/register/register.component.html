@@ -1,18 +1,27 @@
-<div class="auth-wrapper">
-    <form class="form-register" [formGroup]="registerForm" (ngSubmit)="registerUser()">
-        <h3 class="h3 mb-3 font-weight-normal text-center">Register</h3>
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" formControlName="name" placeholder="Enter name" required>
-        </div>
-        <div class="form-group">
-            <label>Email address</label>
-            <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">Register!</button>
+<div class="form-container">
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+        <h3>Join Us!</h3>
+            <p>
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Name" [formControl]="registerForm.controls['username']" required>
+                  <mat-hint>Name/Alias to use on site.</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" [formControl]="registerForm.controls['email']" required>
+                  <mat-hint>youremail@email.com</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" [formControl]="registerForm.controls['password']" required minlength="4">
+                  <mat-hint>at least 4 characters</mat-hint>
+                </mat-form-field>
+            </p>
+            <button mat-raised-button color="accent" type="submit">Register</button>
     </form>
 </div>
