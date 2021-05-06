@@ -10,6 +10,6 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="Logout()" *ngIf="isLoggedIn else login">Logout</button>
   <ng-template #login>
-    <button mat-menu-item routerLink="/login">Login</button>
+    <button mat-menu-item routerLink="/auth/login">Login</button>
   </ng-template>
 </mat-menu>
