@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'auth-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

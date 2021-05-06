@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../authentication/services/auth.service';
+import { AuthService } from '../authentication/auth.service';
 
 @Component({
   selector: 'app-profile',

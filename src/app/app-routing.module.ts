@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
-import { AuthGuard } from './authentication/services/auth.guard';
+import { AuthGuard } from './authentication/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },

@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthInterceptor } from './auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthRoutingModule } from './auth-routing.module';
+import { AuthRoutingModule } from './authentication-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { LogInOutDirective } from './authloginout.directive';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogInOutDirective
   ],
   imports: [
     AuthRoutingModule,
@@ -28,6 +31,10 @@ import { AuthRoutingModule } from './auth-routing.module';
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule
+  ],
+  exports: [
+    LogInOutDirective
   ],
   providers: [
     {
